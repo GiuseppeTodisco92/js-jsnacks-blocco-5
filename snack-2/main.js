@@ -1,5 +1,3 @@
-// Crea un array di 10 oggetti che rappresentano una zucchina, indicando per ognuna varietà, peso e lunghezza.
-// Calcola quanto pesano tutte le zucchine.
 const zucchina = [
     {
         varietà : "varietà1",
@@ -55,8 +53,23 @@ const zucchina = [
 ]
 
 console.log(zucchina.length);
-let sum = 0;
+let sumCorte = 0;
+let sumLunghe = 0;
+let zucchineCorte = [];
+let zucchineLunghe = [];
+let peso = 0;
+
 for(let i = 0; i < zucchina.length; i++){
-    sum += zucchina[i].peso;
+    const lunghezzaZucchina = zucchina[i].lunghezza;
+     peso = zucchina[i].peso;
+    if (lunghezzaZucchina < 15){
+        zucchineCorte.push(zucchina[i].peso);
+        sumCorte += peso;
+    } else {
+        zucchineLunghe.push(zucchina[i].peso);
+        sumLunghe += peso;
+    }
 }
-console.log("il peso delle zucchine è : ",sum);
+
+console.log("le zucchine corte pesano",sumCorte);
+console.log("le zucchine lunghe pesano",sumLunghe)
